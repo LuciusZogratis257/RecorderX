@@ -20,6 +20,8 @@ jobs:
         cache: gradle
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Remove JetBrains JVM pin
+      run: rm -f gradle/gradle-daemon-jvm.properties
     - name: Build Debug APK
       run: ./gradlew assembleDebug
     - name: Upload APK

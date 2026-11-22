@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace "com.lucius.recorder"
+    namespace "com.zygisk_enc.RecorderX"
     compileSdk 34
 
     defaultConfig {

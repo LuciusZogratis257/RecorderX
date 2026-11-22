@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace "com.zygisk_enc.RecorderX"
+    namespace "com.lucius.recorder"
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.zygisk_enc.RecorderX"
+        applicationId "com.lucius.recorder"
         minSdk 29
         targetSdk 34
         versionCode 8

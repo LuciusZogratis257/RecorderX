@@ -781,10 +781,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startProjectionRequest() {
-        MediaProjectionManager projectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
-        if (projectionManager != null) {
-            startActivityForResult(projectionManager.createScreenCaptureIntent(), SCREEN_CAPTURE_REQUEST_CODE);
+    MediaProjectionManager projectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
+    if (projectionManager != null) {
+        Intent captureIntent;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            android.media.projection.MediaProjectionConfig config = android.media.projection.MediaProjectionConfig.createConfigForDefaultDisplay();
+            captureIntent = projectionManager.createScreenCaptureIntent(config);
+        } else {
+            captureIntent = projectionManager.createScreenCaptureIntent();
         }
+        startActivityForResult(captureIntent, SCREEN_CAPTURE_REQUEST_CODE);
+    }
     }
 
     @Override
